@@ -108,7 +108,7 @@ class App extends StatelessWidget {
           return ScreenLoader();
         }
 
-        bool languageSet = model.language != null;
+        var languageSet = model.language != null;
         if (languageSet) {
           CategoryModel.of(context).load(model.language);
           QuestionModel.of(context).load(model.language);
@@ -121,18 +121,30 @@ class App extends StatelessWidget {
               model.changeLanguage(locale.languageCode);
             }
 
+
+
             return locale;
           },
           localizationsDelegates: [
-            SettingsLocalizationsDelegate(
-              languageSet ? Locale(model.language, '') : null,
-            ),
             AppLocalizationsDelegate(),
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
           ],
-          supportedLocales:
-              LanguageService.getCodes().map((code) => Locale(code, '')),
+          supportedLocales: [
+            Locale('en', ''), // English, no country code
+            // Locale('es', ''), // Spanish, no country code
+          ],
+          // localizationsDelegates: [
+          //   SettingsLocalizationsDelegate(
+          //     languageSet ? Locale(model.language, '') : null,
+          //   ),
+          //   AppLocalizationsDelegate(),
+          //   GlobalMaterialLocalizations.delegate,
+          //   GlobalWidgetsLocalizations.delegate,
+          // ],
+          // supportedLocales: LanguageService.getCodes() != null ? LanguageService.getCodes().map((code) => Locale(code, '')) : [],
+
           theme: createTheme(context),
           home: HomeScreen(),
           routes: {
@@ -140,9 +152,9 @@ class App extends StatelessWidget {
             '/game-play': (context) => GamePlayScreen(),
             '/game-summary': (context) => GameSummaryScreen(),
             '/game-gallery': (context) => GameGalleryScreen(),
-            '/settings': (context) => SettingsScreen(),
-            '/tutorial': (context) => TutorialScreen(),
-            '/contributors': (context) => ContributorsScreen(),
+            // '/settings': (context) => SettingsScreen(),
+            // '/tutorial': (context) => TutorialScreen(),
+            // '/contributors': (context) => ContributorsScreen(),
           },
           navigatorObservers: [
             FirebaseAnalyticsObserver(analytics: AnalyticsService.analytics),
@@ -154,9 +166,9 @@ class App extends StatelessWidget {
 }
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   AdsService.initialize();
   CrashlyticsService.initialize();
   NotificationsService.initialize();
-
   runApp(App());
 }

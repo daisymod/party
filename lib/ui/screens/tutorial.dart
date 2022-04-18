@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Page;
 
 import 'package:zgadula/localizations.dart';
 import 'package:zgadula/store/tutorial.dart';

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "416600697528",
+    "project_id": "party-ae1c3",
+    "storage_bucket": "party-ae1c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416600697528:android:4760fdc3211b65c7b7e24d",
+        "android_client_info": {
+          "package_name": "com.puppybox.zgadula"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416600697528-pv0brg8i860qaducsnn8q18pga8c9t51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiLtY_lF6f1Rdju8m553MT_ruKY9MgIFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416600697528-pv0brg8i860qaducsnn8q18pga8c9t51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
